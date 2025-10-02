@@ -25,16 +25,16 @@ public record ModMetadata : AbstractModMetadata
 [Injectable(TypePriority = 0)]
 public class HttpListenerExample : IHttpListener
 {
-    public bool CanHandle(MongoId sessionId, HttpRequest req)
+    public bool CanHandle(MongoId sessionId, HttpContext context)
     {
-        return req.Method == "GET" && req.Path.Value!.Contains("/type-custom-url");
+        return context.Request.Method == "GET" && context.Request.Path.Value!.Contains("/type-custom-url");
     }
 
-    public async Task Handle(MongoId sessionId, HttpRequest req, HttpResponse resp)
+    public async Task Handle(MongoId sessionId, HttpContext context)
     {
-        resp.StatusCode = 200;
-        await resp.Body.WriteAsync("[1] This is the first example of a mod hooking into the HttpServer"u8.ToArray());
-        await resp.StartAsync();
-        await resp.CompleteAsync();
+        context.Response.StatusCode = 200;
+        await context.Response.Body.WriteAsync("[1] This is the first example of a mod hooking into the HttpServer"u8.ToArray());
+        await context.Response.StartAsync();
+        await context.Response.CompleteAsync();
     }
 }

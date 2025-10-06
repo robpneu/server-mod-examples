@@ -13,9 +13,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SPTarkov.Common" Version="4.0.0-pre.20251005.1834" />
-    <PackageReference Include="SPTarkov.DI" Version="4.0.0-pre.20251005.1834" />
-    <PackageReference Include="SPTarkov.Server.Core" Version="4.0.0-pre.20251005.1834" />
+    <PackageReference Include="SPTarkov.Common" Version="4.0.0-pre.20251006.1303" />
+    <PackageReference Include="SPTarkov.DI" Version="4.0.0-pre.20251006.1303" />
+    <PackageReference Include="SPTarkov.Server.Core" Version="4.0.0-pre.20251006.1303" />
   </ItemGroup>
 
 

@@ -47,7 +47,7 @@ public record ModMetadata : AbstractModMetadata
     /// <summary>
     /// What version of SPT is your mod made for, follows SEMVER rules (https://semver.org/)
     /// </summary>
-    public override SemanticVersioning.Version SptVersion { get; init; } = new("4.0.0");
+    public override SemanticVersioning.Version SptVersion { get; init; } = new("~4.0.0");
 
     /// <summary>
     /// ModIds that you know cause problems with your mod

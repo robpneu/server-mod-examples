@@ -47,7 +47,7 @@ public record ModMetadata : AbstractModMetadata
     /// <summary>
     /// What version of SPT is your mod made for, follows SEMVER rules (https://semver.org/)
     /// </summary>
-    public override SemanticVersioning.Version SptVersion { get; init; } = new("~4.0.0");
+    public override SemanticVersioning.Range SptVersion { get; init; } = new("~4.0.0");
 
     /// <summary>
     /// ModIds that you know cause problems with your mod
@@ -57,7 +57,7 @@ public record ModMetadata : AbstractModMetadata
     /// <summary>
     /// ModIds your mod REQUIRES to function
     /// </summary>
-    public override Dictionary<string, SemanticVersioning.Version>? ModDependencies { get; init; }
+    public override Dictionary<string, SemanticVersioning.Range>? ModDependencies { get; init; }
 
     /// <summary>
     /// Where to find your mod online

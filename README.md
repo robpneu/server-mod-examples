@@ -10,7 +10,7 @@ Each mod imports multiple NUGET packages. These are used as libraries of the ser
 
 ### Prerequisites
  [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
- Visual Studio Community / Ryder
+ [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/) / [Rider](https://www.jetbrains.com/rider/)
  
 ### **Essential Concepts**
 Prioritize understanding Dependency Injection and Inversion of Control, the architectural principles SPT adopts.

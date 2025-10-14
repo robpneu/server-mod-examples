@@ -51,10 +51,10 @@ public class AddTraderWithAssortJson(
         var pathToMod = modHelper.GetAbsolutePathToModFolder(Assembly.GetExecutingAssembly());
 
         // A relative path to the trader icon to show
-        var traderImagePath = Path.Combine(pathToMod, "db/cat.jpg");
+        var traderImagePath = Path.Combine(pathToMod, "data/cat.jpg");
 
         // The base json containing trader settings we will add to the server
-        var traderBase = modHelper.GetJsonDataFromFile<TraderBase>(pathToMod, "db/base.json");
+        var traderBase = modHelper.GetJsonDataFromFile<TraderBase>(pathToMod, "data/base.json");
 
         // Create a helper class and use it to register our traders image/icon + set its stock refresh time
         imageRouter.AddRoute(traderBase.Avatar.Replace(".jpg", ""), traderImagePath);
@@ -74,7 +74,7 @@ public class AddTraderWithAssortJson(
         addCustomTraderHelper.AddTraderToLocales(traderBase, "Cat", "This is the cat shop. Meow.");
 
         // Get the assort data from JSON
-        var assort = modHelper.GetJsonDataFromFile<TraderAssort>(pathToMod, "db/assort.json");
+        var assort = modHelper.GetJsonDataFromFile<TraderAssort>(pathToMod, "data/assort.json");
 
         // Save the data we loaded above into the trader we've made
         addCustomTraderHelper.OverwriteTraderAssort(traderBase.Id, assort);

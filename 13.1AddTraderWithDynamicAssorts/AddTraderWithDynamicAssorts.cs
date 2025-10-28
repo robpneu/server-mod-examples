@@ -42,7 +42,7 @@ public class AddTraderWithDynamicAssorts(
     ImageRouter imageRouter,
     ConfigServer configServer,
     TimeUtil timeUtil,
-    ICloner cloner
+    ICloner cloner,
     FluentTraderAssortCreator fluentAssortCreator, // This is a custom class we add for this mod, we made it injectable so it can be accessed like other classes here
     AddCustomTraderHelper addCustomTraderHelper // This is a custom class we add for this mod, we made it injectable so it can be accessed like other classes here
     )

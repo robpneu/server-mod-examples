@@ -10,6 +10,7 @@ using SPTarkov.Server.Core.Routers;
 using SPTarkov.Server.Core.Servers;
 using SPTarkov.Server.Core.Services;
 using SPTarkov.Server.Core.Utils;
+using SPTarkov.Server.Core.Utils.Cloners;
 using System.Reflection;
 using Path = System.IO.Path;
 
@@ -41,6 +42,7 @@ public class AddTraderWithDynamicAssorts(
     ImageRouter imageRouter,
     ConfigServer configServer,
     TimeUtil timeUtil,
+    ICloner cloner,
     FluentTraderAssortCreator fluentAssortCreator, // This is a custom class we add for this mod, we made it injectable so it can be accessed like other classes here
     AddCustomTraderHelper addCustomTraderHelper // This is a custom class we add for this mod, we made it injectable so it can be accessed like other classes here
     )
@@ -109,8 +111,11 @@ public class AddTraderWithDynamicAssorts(
         // We give it the id of the mp133 weapon preset found in globals.json
         // Most weapons have a 'default' in `Globals.ItemPresets`
         var mp133PresetId = "584148f2245977598f1ad387";
+
+        // We need to clone the preset before we use it, if we dont it alters the data in the server and breaks server
+        var mp133PresetItems = cloner.Clone(databaseService.GetTables().Globals.ItemPresets.GetValueOrDefault(mp133PresetId).Items);
         fluentAssortCreator
-            .CreateComplexAssortItem(databaseService.GetTables().Globals.ItemPresets.GetValueOrDefault(mp133PresetId).Items)
+            .CreateComplexAssortItem(mp133PresetItems)
             .AddStackCount(200)
             .AddBarterCost(ItemTpl.FOOD_JAR_OF_DEVILDOG_MAYO, 1)
             .AddBuyRestriction(3)
